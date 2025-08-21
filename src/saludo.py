@@ -23,5 +23,4 @@ else:
             else:
                 if IMC >= 40:
                     estatus = "obesidad extrema 3"
-
 print(nombre, "tu IMC es igual a: ", IMC, "tu estatus es: ", estatus)
