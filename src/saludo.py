@@ -1,2 +1,4 @@
-nombre = input("¿como te llamas(nombre y apellido?")
-print(f"¡hola, {nombre}!")
+print("¿como te llamas(nombre y apellido)")
+nombre = input()
+print ("bienvenido: ", nombre)
+       
