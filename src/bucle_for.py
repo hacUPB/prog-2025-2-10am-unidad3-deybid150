@@ -3,6 +3,7 @@ for cont in range(1,20,3):
     print(cont)
 '''
 
+'''
 n = int(input("ingrese un numero"))
 while n <= 0:
     n = int(input("ingrese un numero"))
@@ -12,3 +13,9 @@ while n <= 0:
         if cont % 2 == 0:
             i += cont
     print(f"la suma de los pares es: {i}")
+'''
+
+mensaje = "upb" 
+n = int(input("ingrese numero positivo: "))
+for i in range(n):
+    print(f"{i + 1}. {mensaje}")
