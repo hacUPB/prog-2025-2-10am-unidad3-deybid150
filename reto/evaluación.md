@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Reto de Programación: Menú Interactivo de Problemas Aeronáuticos
 |Requisito|	Cumple           2|Parcialmente  1|No cumple     0|Evidencia (página/tabla/figura/sección)|
 |---------|-------------------|---------------|----------------|---------------------------------------|
