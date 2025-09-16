@@ -1,7 +1,0 @@
-**Propuestas**
-
-1. Se consulta el precio de un tiquete de un vuelo en un día al azar, y se necesita identificar el gasto que genera el combustible en la distancia que recorre el avión. Para luego hacer una comparación de la venta de tiquetes y los gastos en combustible y confirmar si el vuelo fue rentable para la aerolínea. 
-
-2. Se requiere hacer el registro del mantenimiento de la aeronave de tipo A350-900 para poder autorizar su operación. A dichas aeronaves se les debe hacer un chequeo de mantenimiento del sistema hidráulico cada 600 horas de vuelo, y del sistema eléctrico, cada 400 horas, y además del sistema de aire acondicionado. Si hay una falla en el sistema hidráulico se debe hacer una reparación frenando la operación 2 días, en el sistema eléctrico de 3 días, pero si hay una falla en el sistema de aire acondicionado, el avión puede operar, pero con la restricción de volar hasta los 10.000 pies. 
-
-3. En la aerolínea KLM desean hallar un promedio de la cantidad de maletas que un solo operador de rampa puede ingresar a la bodega de carga en 4 semanas. Cada operador trabaja 6 días a la semana y en 4 aviones por día. Si excede una cantidad de 800 maletas, se le hace un pago adicional de 50.000
