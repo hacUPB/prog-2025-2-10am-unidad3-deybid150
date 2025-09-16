@@ -105,7 +105,8 @@ INICIO
         FIN SEGUN
     FIN MIENTRAS
 FIN
-    
+
+#aqui se uso la IA para mostrar la hora y la perdida resultante de no completar el vuelo por falta de combustible  
 
 ```
 
