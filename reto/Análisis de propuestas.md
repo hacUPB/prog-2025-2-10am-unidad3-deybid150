@@ -157,56 +157,59 @@ FIN
 ```
 
 
-3. **En la aerolínea KLM se desea calcular el promedio de maletas que un operador de rampa carga en 4 semanas. El operador trabaja 6 días a la semana, por lo que en total son 24 días. Cada día se registra la cantidad de maletas cargadas. Si en algún día supera las 800 maletas, recibe un pago adicional de 50.000. Al final, se debe mostrar el total de maletas cargadas, el promedio diario y el pago adicional.**
+3. Una empresa de cohetería desea analizar el rendimiento de un prototipo que recién desarrollaron para verificar si el consumo de combustible le permite alcanzar la altitud objetivo de 200 km, o si falla en alguna de las dos etapas de ascenso. En la primera etapa el cohete consume 800 kg/min de combustible y asciende 5km, mientras que en la segunda etapa el consumo es de 500 kg/min y asciende 3km.
 
 ## Análisis
-
-| Variable                         | Tipo de Variable| Comentario                                                         |
-| -------------------------------- | ------------------- | ------------------------------------------------------------------ |
-| maletas_dia| Entrada  | Registro de la cantidad de maletas cargadas en un día.|
-| dias_t| Control  | Número total de días trabajad(24).                              |
-|i| Control | Contador de ciclo para iterar sobre los días.                      |
-| pago_d/ pago_diario| Constante / Control | Pago fijo diario que se le hace al trabajador (60.000).            |
-| total_maletas      | Proceso / Salida    | Acumulador de la suma total de maletas cargadas en todos los días. |
-|promedio_d / promedio_diario | Salida              | Promedio diario de maletas: total_maletas / dias_t |
-|pago_adicional                 | Constante / Proceso | Pago adicional que se aplica cuando maletas_dia > 800(50.000).  |
-| total_pago                   | Salida              | Pago final recibido (suma de pagos diarios + adicionales).         |
-|dias_exceso                   | Salida / Proceso    | Contador de días que superaron el umbral de 800 maletas.           |
+ 
+| Variable | Tipo de Variable | Comentario |
+|----------|------------------|------------|
+|combustible_e1 |Entrada |Cantidad de combustible inicial de la etapa 1. |
+|combustible_e2 |Entrada |Cantidad de combustible inicial de la etapa 2. |
+|altitud |Proceso |Altitud alcanzada por minuto |
+|min |Control | Cuenta minuto a minuto |
+|etapa |Control |Determina si el cohete está en etapa 1 o 2. |
+|resultado |Salida |Indica si logró alcanzar la altitud de 200km o falló. |
 
 ## Pseudocódigo
 ```
- INICIO
-    dias_trabajados = 4 * 6          // 24 días
-    umbral_diario = 800
-    pago_diario = 60000
-    pago_adicional = 50000
-
-    total_maletas = 0
-    total_pago = 0
-    dias_exceso = 0
-    i = 1
-
-    MIENTRAS i <= dias_trabajados HACER
-        LEER maletas_dia
-        total_maletas = total_maletas + maletas_dia
-        total_pago = total_pago + pago_diario
-
-        SI maletas_dia > umbral_diario ENTONCES
-            total_pago = total_pago + pago_adicional
-            dias_exceso = dias_exceso + 1
-        FIN Si
-
-        i = i + 1
-    FIN MIENTRAS
-
-    promedio_diario = total_maletas / dias_trabajados
-
-    MOSTRAR "Total maletas (4 semanas): ", total_maletas
-    MOSTRAR "Promedio diario: ", promedio_diario
-    MOSTRAR "Días con exceso (>800): ", dias_exceso
-    MOSTRAR "Pago total recibido: ", total_pago
-FIN
-
+Inicio
+    ojetivo_alt = 200
+    consumo_1 = 800
+    consumo_2 = 500
+    IA1 = 5
+    IA2 = 3
+ 
+    Leer combustible_e1
+    Leer combustible_e2
+ 
+    altitud = 0
+    minuto = 0
+    etapa = 1
+ 
+    Mientras altitud < objetivo_alt
+        Si etapa = 1 Entonces
+            Si combustible_e1 > 0 Entonces
+                combustible_e1 = combustible_e1 - consumo_1
+                altitud = altitud + IA1
+                minuto ← minuto + 1
+            Sino
+                etapa = 2
+            Fin Si
+        Sino Si etapa = 2 Entonces
+            Si combustible_e2 > 0 Entonces
+                combustible_e2 = combustible_e2 - consumo_2
+                altitud = altitud + IA2
+                minuto = minuto + 1
+            Sino
+                Mostrar "El cohete se quedó sin combustible en la etapa 2."
+                Mostrar "Altitud:", altitud
+            Fin Si
+        Fin Si
+    Fin Mientras
+ 
+    Si altitud >= objetivo_alt Entonces
+        Mostrar "el cohete alcanzó la órbita de 200 km en", minuto, "minutos."
+    Fin Si
+Fin
+ 
 ```
-
-
